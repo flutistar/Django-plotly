@@ -1,0 +1,61 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block head %}
+  <title>Plotly Examples</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+  {% endblock %}
+</head>
+<body>
+  {% block content %}
+  <!-- Content goes here -->
+
+  {% endblock %}
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+</body>
+</html>
+
+ 
+Last thing will be adding plot.html to the templates folder. plot.html should look like this:
+
+{% extends "base.html" %}
+{% block head %}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<div class="container text-center">
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Django Plotly Example</a>
+    </nav>
+
+
+    <div class="card" style="width: 100%;margin-top: 15px">
+
+      <div class="card-body">
+          <h5 class="card-title">Candlestick Graph</h5>
+        {{simplecandlestick|safe}}
+      </div>
+    </div>
+    <!-- <div class="card" style="width: 100%;margin-top: 15px">
+
+      <div class="card-body">
+          <h5 class="card-title">Topographical 3D Surface Plot</h5>
+        {{piechart|safe}}
+      </div>
+    </div>
+    <div class="card" style="width: 100%;margin-top: 15px">
+
+        <div class="card-body">
+            <h5 class="card-title">Topographical 3D Surface Plot</h5>
+          {{3dplot|safe}}
+        </div>
+    </div> -->
+</div>
+{% endblock %}
